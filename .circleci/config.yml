@@ -2,7 +2,6 @@ version: 2.1
 setup: true
 orbs:
   orb-tools: circleci/orb-tools@11.1
-  shellcheck: circleci/shellcheck@3.1
 
 filters: &filters
   tags:
@@ -12,17 +11,14 @@ workflows:
   lint-pack:
     jobs:
       - orb-tools/lint:
-          filters: *filters
           source-dir: ./orb/
+          filters: *filters
       - orb-tools/pack:
-          filters: *filters
           source-dir: ./orb/
+          filters: *filters
       - orb-tools/review:
-          filters: *filters
           source-dir: ./orb/
-      - shellcheck/check:
           filters: *filters
-          source-dir: ./orb/
       - orb-tools/publish:
           orb-name: vofswords/deploy-onesimpleone
           vcs-type: << pipeline.project.type >>
