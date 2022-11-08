@@ -13,12 +13,16 @@ workflows:
     jobs:
       - orb-tools/lint:
           filters: *filters
+          source-dir: ./orb/
       - orb-tools/pack:
           filters: *filters
+          source-dir: ./orb/
       - orb-tools/review:
           filters: *filters
+          source-dir: ./orb/
       - shellcheck/check:
           filters: *filters
+          source-dir: ./orb/
       - orb-tools/publish:
           orb-name: vofswords/deploy-onesimpleone
           vcs-type: << pipeline.project.type >>
