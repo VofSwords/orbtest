@@ -24,7 +24,7 @@ workflows:
       - command-tests:
           filters: *filters
       - orb-tools/pack:
-        source-dir: ./orb/
+          source-dir: ./orb/
           filters: *filters
       - orb-tools/publish:
           orb-name: vofswords/deploy-onesimpleone
