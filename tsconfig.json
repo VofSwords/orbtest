@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "strict": true,
+    "alwaysStrict": true,
+    "moduleResolution": "Node",
+    "skipLibCheck": true
+  },
+  "compileOnSave": false,
+}

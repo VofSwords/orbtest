@@ -1,0 +1,33 @@
+{
+  "name": "onesimpleone-deploy",
+  "version": "0.0.2",
+  "private": true,
+  "description": "Gatsby deployment orb",
+  "main": "./src/",
+  "scripts": {
+    "build:tscheck": "tsc -p ./src/tsconfig.json --noEmit",
+    "lint:eslint-check": "eslint . --ext .js,.ts",
+    "lint:eslint-fix": "yarn lint:eslint-check --fix",
+    "lint:prettier-check": "prettier --check .",
+    "lint:prettier-fix": "prettier --write .",
+    "pre-build:tscheck": "tsc -p ./build/tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@onesimpleone/configs": "^2.8.6",
+    "@types/node": "^18.11.9",
+    "eslint": "^8.27.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
+  },
+  "license": "ISC",
+  "lint-staged": {
+    "*.{js,ts}": [
+      "prettier --write",
+      "eslint"
+    ],
+    "*.{json}": "prettier --write"
+  },
+  "repository": "https://github.com/VofSwords/orbtest.git"
+}
