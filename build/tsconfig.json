@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
-        "outDir": "dist"
+        "outDir": "dist",
+        "module": "CommonJS"
     },
     "extends": "../tsconfig.json",
     "include": ["./**/*"]

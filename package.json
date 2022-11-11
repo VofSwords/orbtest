@@ -5,12 +5,16 @@
   "description": "Gatsby deployment orb",
   "main": "./src/",
   "scripts": {
+    "build": "yarn build:tsdeclare && yarn pre-build:compile && yarn build:compile",
+    "build:compile": "node ./build/dist/index.js",
     "build:tscheck": "tsc -p ./src/tsconfig.json --noEmit",
+    "build:tsdeclare": "tsc -p ./src/tsconfig.json --emitDeclarationOnly",
     "lint:eslint-check": "eslint . --ext .js,.ts",
     "lint:eslint-fix": "yarn lint:eslint-check --fix",
     "lint:prettier-check": "prettier --check .",
     "lint:prettier-fix": "prettier --write .",
-    "pre-build:tscheck": "tsc -p ./build/tsconfig.json --noEmit"
+    "pre-build:tscheck": "tsc -p ./build/tsconfig.json --noEmit",
+    "pre-build:compile": "tsc -p ./build/tsconfig.json"
   },
   "devDependencies": {
     "@onesimpleone/configs": "^2.8.6",
@@ -19,7 +23,9 @@
     "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "arg": "^5.0.2",
+    "esbuild": "^0.15.13"
   },
   "license": "ISC",
   "lint-staged": {
